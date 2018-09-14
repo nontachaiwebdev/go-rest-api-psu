@@ -20,8 +20,18 @@ func main() {
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	profile := Profile{"Alex", []string{"snowboarding", "programming"}}
-	json, err := json.Marshal(profile)
+	// profile := Profile{"Alex", []string{"snowboarding", "programming"}}
+	profileArr := []Profile { 
+    Profile {
+			Name: "Alex1", 
+			Hobbies: []string{"snowboarding", "programming"},
+    },
+    Profile {
+			Name: "Alex2", 
+			Hobbies: []string{"snowboarding", "programming"},
+    },
+}
+	json, err := json.Marshal(profileArr)
 	if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
     return
